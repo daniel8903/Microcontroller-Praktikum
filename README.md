@@ -1,2 +1,2 @@
 # Microcontroller-Praktikum
-Code zu P1 - P4
+Code zu P1-P4
