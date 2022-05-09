@@ -16,15 +16,15 @@ void Linefollower::run() {
 void Linefollower::changeMode() {
     this->servos.stop(); // pause servos
     if(this->buttonPD2.isOdd()) {
-        // default mode    
-        this->buttonPD2.blinkLED(2);
-        this->servos.setMode(3500, 30);
-        this->sensors.setConversionConstant(0.002);
-    } else {
         // fast mode
         this->buttonPD2.blinkLED(3);
         this->servos.setMode(8000, 10);
         this->sensors.setConversionConstant(0.00258); 
+    } else {
+        // default mode    
+        this->buttonPD2.blinkLED(2);
+        this->servos.setMode(3500, 30);
+        this->sensors.setConversionConstant(0.002)
     }
 }
 

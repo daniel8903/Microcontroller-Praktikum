@@ -25,6 +25,6 @@ void Button::blinkLED(uint8_t times) {
 }
 
 bool Button::isOdd() {
-    if (this->pressCounter % 2) return false;
-    else return true;
+    if (this->pressCounter % 2) return true;
+    else return false;
 }
