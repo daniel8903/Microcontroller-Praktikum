@@ -6,7 +6,7 @@ Servos::Servos() {
 
 void Servos::followLine(float offset, uint16_t leftSensorReading, uint16_t rightSensorReading) 
 {
-    if(offset > 1) {
+    if(offset > 1) { 
         setSpeedM1( 0 ); 
         setSpeedM2( 2 * this->referenceSpeed );  
     } else if(offset < -1) {
@@ -18,7 +18,7 @@ void Servos::followLine(float offset, uint16_t leftSensorReading, uint16_t right
     }
 
     if(bothSeeWhite(leftSensorReading, rightSensorReading)) {
-        driveBackwards(this->backwards_delay);
+        driveBackwards();
     } else {
         driveForward(); 
     }
@@ -29,7 +29,7 @@ bool Servos::bothSeeWhite(uint16_t leftSensorReading, uint16_t rightSensorReadin
 }
 
 void Servos::setMode(uint16_t speed, uint8_t delay) {
-    this->referenceSpeed  = speed;
+    this->referenceSpeed = speed;
     this->backwards_delay = delay;
 }
 
@@ -41,10 +41,10 @@ void Servos::setSpeedM2(uint16_t speed) {
     // change duty cycle
     OCR1B = speed;
 }
-void Servos::driveBackwards(uint8_t backwards_delay) {
+void Servos::driveBackwards() {
     PORTB &= ~(1 << PB0); // backward right
     PORTB &= ~(1 << PB3); // backward left
-    my_delay_ms(backwards_delay);
+    my_delay_ms(this->backwards_delay);
 }
 void Servos::driveForward() {
     PORTB |= (1 << PB0); // forward right

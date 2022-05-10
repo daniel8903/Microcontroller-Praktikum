@@ -8,7 +8,7 @@ float Sensors::calculateOffset() {
     this->rightValue = this->adc.read(RIGHT_SENSOR);
     this->leftValue  = this->adc.read(LEFT_SENSOR);
     int16_t error = this->rightValue - this->leftValue;
-    return conversionConstant * error; // offset
+    return this->conversionConstant * error; // offset
 }
 
 uint16_t Sensors::potentiometerReading() {

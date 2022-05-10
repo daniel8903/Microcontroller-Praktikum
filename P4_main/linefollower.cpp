@@ -24,7 +24,7 @@ void Linefollower::changeMode() {
         // default mode    
         this->buttonPD2.blinkLED(2);
         this->servos.setMode(3500, 30);
-        this->sensors.setConversionConstant(0.002)
+        this->sensors.setConversionConstant(0.002);
     }
 }
 
