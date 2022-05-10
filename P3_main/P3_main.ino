@@ -40,7 +40,7 @@ int main() {
             }
         } else {
             TCCR0B = 0x00; // stops timer 0
-            PORTD &= (0 << PD3); // turn LED off
+            PORTD &= ~(1 << PD3); // turn LED off
             blinkLED = false;
         }
     }
