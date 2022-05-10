@@ -5,7 +5,7 @@
 #include <stdint.h>
 #include <string.h>
 
-#define KONDENSOR_LADESPANNUNG 1
+#define KONDENSATOR_LADESPANNUNG 1
 
 void initUSART(uint32_t baudRate);
 void transmitByte(uint8_t data);
@@ -80,7 +80,7 @@ ISR(TIMER0_COMPA_vect) {
     static uint8_t extraTime = 0;
     extraTime++;
     if(extraTime == 100) { // every 50ms
-        uint16_t adc_input = readADC(KONDENSOR_LADESPANNUNG);
+        uint16_t adc_input = readADC(KONDENSATOR_LADESPANNUNG);
         transmitString(static_cast<String>(adc_input) + "\n");
         extraTime = 0;
     }
