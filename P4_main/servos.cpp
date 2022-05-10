@@ -29,7 +29,7 @@ bool Servos::bothSeeWhite(uint16_t leftSensorReading, uint16_t rightSensorReadin
 }
 
 void Servos::setMode(uint16_t speed, uint8_t delay) {
-    this->referenceSpeed = speed;
+    this->referenceSpeed  = speed;
     this->backwards_delay = delay;
 }
 
